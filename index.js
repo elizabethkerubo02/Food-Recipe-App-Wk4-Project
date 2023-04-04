@@ -78,7 +78,7 @@ function updateUI(meals) {
   let html = "";
   meals.map((meal) => {
     html =
-      `<li>
+      `<li class="food-list">
       <div data_id="${meal.idMeal}" class="food-card">
         <div class="food-img-container">
           <img class="food-img" src="${meal.strMealThumb}" alt="food-image" />
@@ -187,6 +187,7 @@ function mealRecipeModal(meal) {
   meal = meal[0];
 
   let html = `
+      <div class= "recipe-displayed">
       <h2 class = "recipe-title">${meal.strMeal}</h2>
       <p class = "recipe-category">${meal.strCategory}</p>
       <div class = "recipe-meal-img">
@@ -199,6 +200,8 @@ function mealRecipeModal(meal) {
       
       <div class = "recipe-link">
           <a href = "${meal.strYoutube}" target = "_blank">Watch Video</a>
+      </div>
+
       </div>
   `;
   console.log(html);
@@ -246,22 +249,3 @@ function fetchRandomQuote(){
 
 //calling the random quotes generator afer 5seconds function
 fetchRandomQuote();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

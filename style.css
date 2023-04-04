@@ -23,20 +23,27 @@ li {
   text-align: center;
   margin-top: 5.6rem;
   color: #fff;
+  padding: 3rem 0;
   
 }
-blockquote {
-  margin-top: 2.4rem;
-  text-align: center;
-  font-weight: 400;
-  font-size: 1.8rem;
-  line-height: 1.4;
+
+/* quotes generator */
+.quotes-generator{
+  width: 150rem;
+  height: 200px;
+  margin: 0 auto;
+  
+}
+#quotes{
   color: #fff;
+  font-size: 2.7rem;
+  text-align: center;
+  padding: 2em;
 }
 /* ........................//search-box edit//..................... */
 #form {
   display: flex;
-  align-items: strech;
+  align-items: stretch;
   max-width: 60rem;
   font-family: inherit;
   border: 3px solid #0F8B8D;
@@ -109,7 +116,7 @@ blockquote {
 /* //...............meals-box.................// */
 .food-card {
   height: 46rem;
-  width: 35rem;
+  width: 40rem;
   overflow: hidden;
   background-color: #fff;
   border-radius: 8px;
@@ -118,8 +125,9 @@ blockquote {
   box-shadow: 1px 1px 15px 1px rgba(121, 229, 225, 0.5);
   place-self: center;
 }
+
 .food-img-container {
-  height: 20rem;
+  height: 27rem;
 }
 .food-img {
   width: 100%;
@@ -132,13 +140,13 @@ blockquote {
   padding: 2.4rem 1.2rem;
 }
 .title {
-  font-size: 1.8rem;
+  font-size: 2.5rem;
 }
 .btn-view {
   width: 100%;
-  height: 3.6rem;
+  height: 5.6rem;
   position: absolute;
-  font-size: 1.4rem;
+  font-size: 3.4rem;
   letter-spacing: 0.2rem;
   bottom: 0;
   font-weight: 400;
@@ -146,7 +154,7 @@ blockquote {
   color: #fff;
 }
 .btn-like {
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   color: #ccc;
   padding: 0.6rem;
 }
@@ -159,6 +167,7 @@ blockquote {
 }
 .meal-box {
   margin-top: 6.4rem;
+  
 }
 .display {
   display: grid;
@@ -237,11 +246,28 @@ blockquote {
   border-radius: 50%;
   /* margin: 1.5rem auto; */
 }
-#quotes{
+
+/* footer */
+.foot{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #26b4b7;
+  opacity: 0.5;
+  padding: 2rem;
+  margin-top: 20rem;
+  
+}
+
+.footer{
   color: #fff;
-  font-size: 2.5rem;
+  padding: 10px;
+  color: #fff;
   text-align: center;
-  padding: 2em;
+  font-size: 3rem;
+  
+  
 }
 
 /* Media Queries */
