@@ -32,31 +32,32 @@
               <option value="British">British</option>
               <option value="Chinese">Chinese</option>
               <option value="Indian">Indian</option>
-              <option value="Italian">Italian</option>
+              <option value="African">African</option>
             </optgroup>
           </select>
-          <input
-            type="text"
-            name="search"
-            id="search"
-            placeholder="search a recipe"
+          <input type="text" name="search" id="search" placeholder="search a recipe eg chicken"
           />
         </form>
         <div class="btn-container">
-          <button class="btn fav">Favourite</button>
-          <button class="btn ran">Surprise me a Dish</button>
+          <button class="btn fav">Favourite Dishes</button>
+          <button class="btn ran">Random Dishes</button>
         </div>
       </div>
-      <h2 class="heading" style="font-weight: 600">search result:</h2>
+      <h2 class="heading" style="font-weight: 600">search result: </h2>
       <div class="meal-box">
         <ul class="display"></ul>
       </div>
       <br />
+      <!-- modal display recipes -->
       <div class="modal hidden">
         <i class="fa-solid fa-xmark close"></i>
         <div class="meal-details"></div>
       </div>
       <div class="overlay hidden"></div>
+
+      <!-- modal display recipes -->
+
+
     </main>
     <script src="./index.js"></script>
     <script

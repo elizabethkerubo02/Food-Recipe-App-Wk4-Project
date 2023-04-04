@@ -20,7 +20,7 @@ display.addEventListener("click", (event) => {
     let mealItem = parentElement.getAttribute("data_id");
     console.log(mealItem);
 
-    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?s=${mealItem}`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem}`)
       .then((response) => response.json())
       .then((data) => {
         mealRecipeModal(data.meals);
@@ -57,7 +57,7 @@ searchBy.addEventListener("change", () => {
     if (searchBy.value == "name") {
       search.placeholder = "search a recipe";
     } else {
-      search.placeholder = "search by an ingredient";
+      search.placeholder = "search by an ingredient eg chicken";
     }
   }
 });
@@ -122,17 +122,17 @@ function searchUpdate(category, searchVal) {
   if (category == "name") {
     link = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchVal}`;
   } else if (category == "ingredient") {
-    link = `https://www.themealdb.com/api/json/v1/1/filter.php?s=${searchVal}`;
+    link = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${searchVal}`;
   } else {
     const optgroup = searchBy.options[searchBy.selectedIndex].parentNode;
     if (optgroup.tagName === "OPTGROUP") {
       const optgroupLabel = optgroup.label;
 
       if (optgroupLabel == "Category") {
-        link = `https://www.themealdb.com/api/json/v1/1/filter.php?s=${category}`;
+        link = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
       }
       if (optgroupLabel == "Area") {
-        link = `https://www.themealdb.com/api/json/v1/1/filter.php?s=${category}`;
+        link = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${category}`;
       }
     }
   }
@@ -199,5 +199,8 @@ function mealRecipeModal(meal) {
   `;
   console.log(html);
   mealDetailsContent.innerHTML = html;
-  // mealDetailsContent.parentElement.classList.add("showRecipe");
+   mealDetailsContent.parentElement.classList.add("showRecipe");
 }
+
+
+
