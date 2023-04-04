@@ -9,6 +9,10 @@ const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const close = document.querySelector(".close");
 
+//random food quotes generator
+const quotes = document.getElementById("quotes");
+
+
 let favourite = [];
 
 // add click event listener to parent element to get recipe
@@ -201,6 +205,63 @@ function mealRecipeModal(meal) {
   mealDetailsContent.innerHTML = html;
    mealDetailsContent.parentElement.classList.add("showRecipe");
 }
+// fetch random quotes function
+
+function fetchRandomQuote(){
+  const apiKey = "XNDQjbsMRKbOmfrH0NWnlw==4xkXoMylpUitHS74"
+  fetch("https://api.api-ninjas.com/v1/quotes?category=food",{
+    headers :{
+      'X-Api-Key' : apiKey
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    
+    //get single quote and author from the response date
+    const quote = data[0].quote;
+    const author = data[0].author;
+
+    //clear the previous quote from the #quotes container
+
+    
+
+    //get the existing quotes p container element already defined at the top quotes with an id of quotes
+
+
+    //clear the previous quote from the #quotes container
+    quotes.textContent = '';
+
+    //create a new text node to the quotes container
+
+    const quoteText = document.createTextNode(`"${quote}" - ${author}`);
+
+    //append the new text node to the quote container element
+    quotes.appendChild(quoteText);
+  })
+  .catch(error => console.error(error))
+
+  //to repeat the process after 5seconds
+  setTimeout(fetchRandomQuote, 10000);
+}
+
+//calling the random quotes generator afer 5seconds function
+fetchRandomQuote();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
