@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded",function(){
+
+
+
   const fav = document.querySelector(".fav");
   const ran = document.querySelector(".ran");
   const display = document.querySelector(".display");
@@ -152,7 +154,7 @@ document.addEventListener("DOMContentLoaded",function(){
         console.log("Not found");
       });
   }
-  //random/favourite button
+  //random/favourite dishes button
   ran.addEventListener("click", random);
   fav.addEventListener("click", (e) => {
     e.preventDefault();
@@ -161,19 +163,7 @@ document.addEventListener("DOMContentLoaded",function(){
     const favouriteJson = localStorage.getItem("favourite");
     favourite = JSON.parse(favouriteJson) || [];
   
-    Promise.all(
-      favourite.map((fav) => {
-        const link = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${fav}`;
-        return fetch(link)
-          .then((response) => response.json())
-          .then((data) => {
-            arr.push(data.meals[0]);
-          })
-          .catch((err) => console.log(err));
-      })
-    ).then(() => {
-      updateUI(arr);
-    });
+   
   });
   
   // get recipe of the meal
@@ -251,4 +241,3 @@ document.addEventListener("DOMContentLoaded",function(){
   //calling the random quotes generator afer 5seconds function
   fetchRandomQuote();
   
-});
