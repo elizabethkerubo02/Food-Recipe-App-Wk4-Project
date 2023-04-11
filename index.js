@@ -159,11 +159,23 @@
   fav.addEventListener("click", (e) => {
     e.preventDefault();
     // Get the updated favourite array from local storage
-    var arr = [];
+   let arr = [];
     const favouriteJson = localStorage.getItem("favourite");
     favourite = JSON.parse(favouriteJson) || [];
   
-   
+    Promise.all(
+      favourite.map((fav) => {
+        const link = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${fav}`;
+        return fetch(link)
+          .then((response) => response.json())
+          .then((data) => {
+            arr.push(data.meals[0]);
+          })
+          .catch((err) => console.log(err));
+      })
+    ).then(() => {
+      updateUI(arr);
+    });
   });
   
   // get recipe of the meal
